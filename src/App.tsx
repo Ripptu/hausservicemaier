@@ -62,6 +62,8 @@ export default function App() {
                   src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260302_081216_d31ef968-c599-402c-bf77-c23a0b007f39.jpeg&w=1280&q=85" 
                   alt="Hausservice Maier Logo" 
                   className="h-16 w-auto object-contain mix-blend-multiply"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </a>
             </div>
@@ -114,7 +116,7 @@ export default function App() {
         <section className="relative bg-primary-950 text-white overflow-hidden">
           {/* Background Pattern/Image Overlay with slow scale animation */}
           <motion.div 
-            className="absolute inset-0 opacity-20"
+            className="absolute inset-0 opacity-20 will-change-transform"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -123,7 +125,8 @@ export default function App() {
               src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop" 
               alt="Modern building facade" 
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-primary-950 mix-blend-multiply"></div>
           </motion.div>
@@ -186,7 +189,7 @@ export default function App() {
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="text-center max-w-3xl mx-auto mb-16"
             >
               <motion.h2 variants={fadeUp} className="text-primary-600 font-semibold tracking-wide uppercase text-sm mb-3">Unsere Leistungen</motion.h2>
@@ -198,7 +201,7 @@ export default function App() {
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.1 }}
               className="grid md:grid-cols-3 gap-8"
             >
               {/* Service 1 */}
@@ -260,7 +263,7 @@ export default function App() {
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, amount: 0.3 }}
               >
                 <motion.h2 variants={fadeRight} className="text-3xl md:text-4xl font-display font-bold mb-6">Warum Hausverwaltungen auf uns vertrauen.</motion.h2>
                 <motion.p variants={fadeRight} className="text-primary-100 text-lg mb-8 leading-relaxed">
@@ -282,11 +285,11 @@ export default function App() {
               <motion.div 
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, amount: 0.3 }}
                 variants={fadeLeft}
                 className="relative"
               >
-                <div className="aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                <div className="aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-surface-800">
                   <motion.img 
                     initial={{ scale: 1.2 }}
                     whileInView={{ scale: 1 }}
@@ -294,8 +297,9 @@ export default function App() {
                     viewport={{ once: true }}
                     src="https://www.mkm-traumhaus.de/assets/images/artikel/68/werterhalt-wertsteigerung-von-immobilien.jpg" 
                     alt="Professional property maintenance" 
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover will-change-transform"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 {/* Floating Badge */}
@@ -328,7 +332,7 @@ export default function App() {
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.3 }}
               className="text-center mb-16"
             >
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-display font-bold text-surface-900 mb-4">Häufig gestellte Fragen</motion.h2>
@@ -339,7 +343,7 @@ export default function App() {
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="space-y-6"
             >
               {/* FAQ Item 1 */}
@@ -370,7 +374,7 @@ export default function App() {
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.2 }}
               className="mb-16 md:mb-24"
             >
               <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-surface-900 mb-6 tracking-tight">
@@ -385,7 +389,7 @@ export default function App() {
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.1 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {/* Phone Card */}
