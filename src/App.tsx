@@ -428,33 +428,17 @@ export default function App() {
               </motion.a>
 
               {/* Maps Card - spans full width on mobile, 3 cols on lg */}
-              <motion.div variants={fadeUp} className="md:col-span-2 lg:col-span-3 bg-white p-4 rounded-[2rem] border border-surface-200 h-[400px] md:h-[500px] relative overflow-hidden group">
-                <div className="absolute inset-0 p-4">
-                  <div className="w-full h-full rounded-[1.5rem] overflow-hidden relative">
-                    <iframe 
-                      src="https://maps.google.com/maps?q=Von-Haniel-Stra%C3%9Fe%207,%2085778%20Haimhausen&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-                      width="100%" 
-                      height="100%" 
-                      style={{ border: 0, filter: 'grayscale(100%) contrast(100%) opacity(80%)' }} 
-                      allowFullScreen={false} 
-                      loading="lazy" 
-                      referrerPolicy="no-referrer-when-downgrade"
-                      className="transition-all duration-700 group-hover:filter-none group-hover:scale-105"
-                    ></iframe>
-                    {/* Overlay to make it look trendy */}
-                    <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-xl pointer-events-none border border-white/20">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-900 rounded-full flex items-center justify-center shrink-0">
-                          <MapPin className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="font-bold text-surface-900 text-lg">Unser Standort</div>
-                          <div className="text-sm text-surface-500 font-medium">Haimhausen, München Nord</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <motion.div variants={fadeUp} className="md:col-span-2 lg:col-span-3 bg-surface-200 rounded-[2rem] h-[400px] md:h-[500px] relative overflow-hidden group">
+                <iframe 
+                  src="https://maps.google.com/maps?q=Von-Haniel-Stra%C3%9Fe%207,%2085778%20Haimhausen&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0, filter: 'grayscale(100%) contrast(100%) opacity(80%)' }} 
+                  allowFullScreen={false} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0 w-full h-full transition-all duration-700 group-hover:filter-none group-hover:scale-105"
+                ></iframe>
               </motion.div>
             </motion.div>
           </div>
@@ -462,14 +446,14 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#050505] text-surface-400 pt-20 pb-8 border-t border-surface-800 relative overflow-hidden">
+      <footer className="bg-[#050505] text-white pt-20 pb-8 border-t border-surface-800 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
             <div className="lg:col-span-2">
               <h3 className="text-white text-3xl md:text-4xl font-display font-bold mb-6">
                 Bereit für den nächsten Schritt?
               </h3>
-              <p className="text-surface-400 text-lg mb-8 max-w-md leading-relaxed">
+              <p className="text-white/90 text-lg mb-8 max-w-md leading-relaxed">
                 Lassen Sie uns gemeinsam den Wert Ihrer Immobilie sichern. Kontaktieren Sie uns für ein unverbindliches Erstgespräch.
               </p>
               <a href="mailto:info@hausservice-maier.de" className="inline-flex items-center text-white font-bold text-xl group">
@@ -480,7 +464,7 @@ export default function App() {
             
             <div>
               <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Navigation</h4>
-              <ul className="space-y-4 text-sm font-medium">
+              <ul className="space-y-4 text-sm font-medium text-white/90">
                 <li><a href="#leistungen" className="hover:text-white transition-colors">Leistungen</a></li>
                 <li><a href="#vorteile" className="hover:text-white transition-colors">Vorteile</a></li>
                 <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
@@ -490,7 +474,7 @@ export default function App() {
 
             <div>
               <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Kontakt</h4>
-              <ul className="space-y-4 text-sm font-medium">
+              <ul className="space-y-4 text-sm font-medium text-white/90">
                 <li>Von-Haniel-Straße 7</li>
                 <li>85778 Haimhausen</li>
                 <li className="pt-2"><a href="tel:+491754011720" className="hover:text-white transition-colors text-lg">+49 175 4011720</a></li>
@@ -498,7 +482,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-medium">
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-medium text-white/80">
             <div className="flex flex-wrap justify-center gap-6">
               <a href="#" className="hover:text-white transition-colors">Impressum</a>
               <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
