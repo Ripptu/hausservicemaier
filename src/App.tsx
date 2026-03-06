@@ -116,19 +116,19 @@ export default function App() {
         <section className="relative bg-primary-950 text-white overflow-hidden">
           {/* Background Pattern/Image Overlay with slow scale animation */}
           <motion.div 
-            className="absolute inset-0 opacity-20 will-change-transform"
+            className="absolute inset-0 opacity-40 will-change-transform"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop" 
-              alt="Modern building facade" 
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+              alt="Moderne Gewerbeimmobilie" 
               className="w-full h-full object-cover"
               fetchPriority="high"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-primary-950 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-950/90 to-primary-900/70 mix-blend-multiply"></div>
           </motion.div>
 
           {/* Adjusted padding: pt-10 pb-20 for mobile to remove empty space, lg:py-32 for desktop */}
@@ -141,7 +141,7 @@ export default function App() {
               >
                 <motion.div variants={fadeUp} className="inline-flex items-center rounded-full px-4 py-1.5 bg-primary-800/50 border border-primary-700 backdrop-blur-sm text-sm font-medium text-primary-100 mb-6 md:mb-8">
                   <ShieldCheck className="w-4 h-4 mr-2 text-accent-400" />
-                  Ihr lokaler Partner in München & Haimhausen
+                  Ihr lokaler Partner in München & Umgebung
                 </motion.div>
                 
                 <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-balance leading-[1.1] mb-6">
@@ -205,51 +205,54 @@ export default function App() {
               className="grid md:grid-cols-3 gap-8"
             >
               {/* Service 1 */}
-              <motion.div variants={fadeUp} className="bg-surface-50 rounded-2xl p-8 border border-surface-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                <div className="w-14 h-14 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
+              <motion.div variants={fadeUp} className="bg-surface-50 rounded-2xl p-8 border border-surface-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                <div className="relative z-10">
+                  <div className="w-full h-48 mb-6 rounded-xl overflow-hidden">
+                    <img src="https://s1.directupload.eu/images/260306/fr7vru3s.jpg" alt="Mitarbeiter vor Maschinenanlage" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Hausmeisterservice</h4>
+                  <p className="text-surface-600 mb-6 leading-relaxed">Technische Betreuung, Instandhaltung und regelmäßige Kontrollgänge für einen reibungslosen Betrieb Ihrer Immobilie.</p>
+                  <ul className="space-y-2 text-surface-600 font-medium">
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Kleinreparaturen</li>
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Haustechnik-Kontrolle</li>
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> 24/7 Notdienst-Koordination</li>
+                  </ul>
                 </div>
-                <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Hausmeisterservice</h4>
-                <p className="text-surface-600 mb-6 leading-relaxed">Technische Betreuung, Instandhaltung und regelmäßige Kontrollgänge für einen reibungslosen Betrieb Ihrer Immobilie.</p>
-                <ul className="space-y-2 text-surface-600 font-medium">
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Kleinreparaturen</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Haustechnik-Kontrolle</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> 24/7 Notdienst-Koordination</li>
-                </ul>
               </motion.div>
 
               {/* Service 2 */}
-              <motion.div variants={fadeUp} className="bg-surface-50 rounded-2xl p-8 border border-surface-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                <div className="w-14 h-14 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
+              <motion.div variants={fadeUp} className="bg-surface-50 rounded-2xl p-8 border border-surface-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                <div className="relative z-10">
+                  <div className="w-full h-48 mb-6 rounded-xl overflow-hidden">
+                    <img src="https://s1.directupload.eu/images/260306/3u4a6wd3.jpg" alt="Treppenhausreinigung" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Gebäudereinigung</h4>
+                  <p className="text-surface-600 mb-6 leading-relaxed">Strahlende Sauberkeit für Treppenhäuser, Büros und Tiefgaragen. Repräsentativ und hygienisch einwandfrei.</p>
+                  <ul className="space-y-2 text-surface-600 font-medium">
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Treppenhausreinigung</li>
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Fenster- & Glasreinigung</li>
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Tiefgaragenreinigung</li>
+                  </ul>
                 </div>
-                <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Gebäudereinigung</h4>
-                <p className="text-surface-600 mb-6 leading-relaxed">Strahlende Sauberkeit für Treppenhäuser, Büros und Tiefgaragen. Repräsentativ und hygienisch einwandfrei.</p>
-                <ul className="space-y-2 text-surface-600 font-medium">
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Treppenhausreinigung</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Fenster- & Glasreinigung</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Tiefgaragenreinigung</li>
-                </ul>
               </motion.div>
 
               {/* Service 3 */}
-              <motion.div variants={fadeUp} className="bg-surface-50 rounded-2xl p-8 border border-surface-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                <div className="w-14 h-14 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                  </svg>
+              <motion.div variants={fadeUp} className="bg-surface-50 rounded-2xl p-8 border border-surface-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                <div className="relative z-10">
+                  <div className="w-full h-48 mb-6 rounded-xl overflow-hidden">
+                    <img src="https://s1.directupload.eu/images/260306/7yeu2rgl.jpg" alt="Winterdienstfahrzeug" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Garten- & Winterdienst</h4>
+                  <p className="text-surface-600 mb-6 leading-relaxed">Gepflegte Außenanlagen im Sommer und garantierte Sicherheit bei Schnee und Eis im Winter.</p>
+                  <ul className="space-y-2 text-surface-600 font-medium">
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Rasenschnitt & Heckenpflege</li>
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Unkrautbeseitigung</li>
+                    <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Zuverlässiger Räumdienst</li>
+                  </ul>
                 </div>
-                <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Garten- & Winterdienst</h4>
-                <p className="text-surface-600 mb-6 leading-relaxed">Gepflegte Außenanlagen im Sommer und garantierte Sicherheit bei Schnee und Eis im Winter.</p>
-                <ul className="space-y-2 text-surface-600 font-medium">
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Rasenschnitt & Heckenpflege</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Unkrautbeseitigung</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Zuverlässiger Räumdienst</li>
-                </ul>
               </motion.div>
             </motion.div>
           </div>
@@ -267,10 +270,10 @@ export default function App() {
               >
                 <motion.h2 variants={fadeRight} className="text-3xl md:text-4xl font-display font-bold mb-6">Warum Hausverwaltungen auf uns vertrauen.</motion.h2>
                 <motion.p variants={fadeRight} className="text-primary-100 text-lg mb-8 leading-relaxed">
-                  Seit über drei Jahrzehnten sind wir der verlässliche Partner für Immobilienbesitzer im Raum München Nord. Wir verstehen, dass eine Immobilie nicht nur ein Gebäude, sondern ein wertvolles Asset ist, das kontinuierliche Pflege benötigt.
+                  Seit über drei Jahrzehnten sind wir der verlässliche Partner für Immobilienbesitzer im Raum München und Umgebung. Wir verstehen, dass eine Immobilie nicht nur ein Gebäude, sondern ein wertvolles Asset ist, das kontinuierliche Pflege benötigt.
                 </motion.p>
                 
-                <motion.div variants={fadeRight} className="grid sm:grid-cols-2 gap-8">
+                <motion.div variants={fadeRight} className="grid sm:grid-cols-2 gap-8 mb-8">
                   <div>
                     <div className="text-4xl font-display font-bold text-accent-400 mb-2">30+</div>
                     <div className="font-medium text-primary-100">Jahre Erfahrung in der Objektbetreuung</div>
@@ -279,6 +282,13 @@ export default function App() {
                     <div className="text-4xl font-display font-bold text-accent-400 mb-2">100%</div>
                     <div className="font-medium text-primary-100">Inhabergeführt & Regional verwurzelt</div>
                   </div>
+                </motion.div>
+
+                <motion.div variants={fadeRight}>
+                  <a href="https://www.provenexpert.com/hausservice-maier-gmbh" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl transition-colors border border-white/20">
+                    <span className="font-bold">Bewerten Sie uns auf</span>
+                    <img src="https://www.provenexpert.com/images/pe-logo-white.svg" alt="ProvenExpert" className="h-5" />
+                  </a>
                 </motion.div>
               </motion.div>
               
@@ -295,8 +305,8 @@ export default function App() {
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 1.5, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    src="https://www.mkm-traumhaus.de/assets/images/artikel/68/werterhalt-wertsteigerung-von-immobilien.jpg" 
-                    alt="Professional property maintenance" 
+                    src="https://s1.directupload.eu/images/260306/uw3zz38x.jpg" 
+                    alt="Die Geschäftsführer von Hausservice Maier" 
                     className="w-full h-full object-cover will-change-transform"
                     loading="lazy"
                     decoding="async"
@@ -349,7 +359,7 @@ export default function App() {
               {/* FAQ Item 1 */}
               <motion.div variants={fadeUp} className="bg-white rounded-2xl p-6 shadow-sm border border-surface-100 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-bold text-surface-900 mb-2">Für welche Objekte übernehmen Sie die Betreuung?</h3>
-                <p className="text-surface-600">Wir betreuen Wohnanlagen (WEGs), Gewerbeimmobilien, Bürogebäude sowie private Mehrfamilienhäuser im Raum München Nord und Haimhausen.</p>
+                <p className="text-surface-600">Wir betreuen Wohnanlagen (WEGs), Gewerbeimmobilien, Bürogebäude sowie private Mehrfamilienhäuser im Raum München und Umgebung.</p>
               </motion.div>
               
               {/* FAQ Item 2 */}
@@ -473,11 +483,11 @@ export default function App() {
             </div>
 
             <div>
-              <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Kontakt</h4>
+              <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Social Media</h4>
               <ul className="space-y-4 text-sm font-medium text-white/90">
-                <li>Von-Haniel-Straße 7</li>
-                <li>85778 Haimhausen</li>
-                <li className="pt-2"><a href="tel:+491754011720" className="hover:text-white transition-colors text-lg">+49 175 4011720</a></li>
+                <li><a href="https://www.facebook.com/HausServiceMaierGmbH" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a></li>
+                <li><a href="https://www.instagram.com/hausservicemaier_gmbh/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a></li>
+                <li><a href="https://www.linkedin.com/checkpoint/challengesV2/AQExq4Lt5OjvIAAAAZzCCgPa8MM5rCwDIg5S355xFxg1FT4s0ca2B9J0ZptJgojRe-Zw5gtU4Kk7kbiMa7VNVy3cONs50dj2jg?ut=03zw7ACGV-RY81" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2"><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a></li>
               </ul>
             </div>
           </div>
