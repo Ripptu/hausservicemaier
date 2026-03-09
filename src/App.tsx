@@ -192,14 +192,9 @@ export default function App() {
       ) : (
       <main>
         {/* Hero Section */}
-        <section className="relative bg-primary-950 text-white overflow-hidden">
-          {/* Background Pattern/Image Overlay with slow scale animation */}
-          <motion.div 
-            className="absolute inset-0 opacity-60 will-change-transform"
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-          >
+        <section className="relative bg-surface-50 text-surface-900 overflow-hidden">
+          {/* Background Pattern/Image Overlay */}
+          <div className="absolute inset-0 opacity-100">
             <img 
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
               alt="Moderne Gewerbeimmobilie" 
@@ -207,8 +202,8 @@ export default function App() {
               fetchPriority="high"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-950/70 to-primary-900/40 mix-blend-multiply"></div>
-          </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/30"></div>
+          </div>
 
           {/* Adjusted padding: pt-10 pb-20 for mobile to remove empty space, lg:py-32 for desktop */}
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20 md:pt-20 md:pb-24 lg:py-32">
@@ -218,31 +213,31 @@ export default function App() {
                 initial="hidden"
                 animate="visible"
               >
-                <motion.div variants={fadeUp} className="inline-flex items-center rounded-full px-4 py-1.5 bg-primary-800/50 border border-primary-700 backdrop-blur-sm text-sm font-medium text-primary-100 mb-6 md:mb-8">
-                  <ShieldCheck className="w-4 h-4 mr-2 text-accent-400" />
+                <motion.div variants={fadeUp} className="inline-flex items-center rounded-full px-4 py-1.5 bg-white/80 border border-surface-200 shadow-sm backdrop-blur-sm text-sm font-medium text-surface-800 mb-6 md:mb-8">
+                  <ShieldCheck className="w-4 h-4 mr-2 text-accent-500" />
                   Ihr lokaler Partner in München & Umgebung
                 </motion.div>
                 
-                <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-balance leading-[1.1] mb-6">
+                <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-balance leading-[1.1] mb-6 text-surface-900">
                   Werterhalt für Ihre Immobilie seit 1994.
                 </motion.h1>
                 
-                <motion.p variants={fadeUp} className="text-lg sm:text-xl md:text-2xl text-primary-100 mb-8 md:mb-10 text-balance max-w-2xl leading-relaxed">
+                <motion.p variants={fadeUp} className="text-lg sm:text-xl md:text-2xl text-surface-600 mb-8 md:mb-10 text-balance max-w-2xl leading-relaxed">
                   HausService Maier GmbH bietet seit 1994 erstklassiges Facility Management. Professionelle Objektbetreuung, Grünanlagenpflege und Reinigung. Wir entlasten Eigentümer und Hausverwaltungen – zuverlässig, kompetent und regional.
                 </motion.p>
                 
                 <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
-                  <a href="#kontakt" className="inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl text-primary-950 bg-accent-500 hover:bg-accent-400 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:-translate-y-1">
+                  <a href="#kontakt" className="inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl text-white bg-primary-900 hover:bg-primary-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                     Kostenloses Angebot anfordern
                     <ChevronRight className="ml-2 w-5 h-5" />
                   </a>
-                  <a href="tel:+491754011720" className="inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl text-white bg-primary-800 hover:bg-primary-700 border border-primary-700 transition-all hover:-translate-y-1">
-                    <Phone className="mr-2 w-5 h-5" />
+                  <a href="tel:+491754011720" className="inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl text-surface-900 bg-white hover:bg-surface-50 border border-surface-200 shadow-sm transition-all hover:-translate-y-1">
+                    <Phone className="mr-2 w-5 h-5 text-primary-600" />
                     0175 4011720
                   </a>
                 </motion.div>
 
-                <motion.div variants={fadeUp} className="mt-10 md:mt-12 flex flex-wrap items-center gap-y-3 gap-x-6 text-sm font-medium text-primary-200">
+                <motion.div variants={fadeUp} className="mt-10 md:mt-12 flex flex-wrap items-center gap-y-3 gap-x-6 text-sm font-medium text-surface-600">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-accent-500" />
                     <span>Inhabergeführt</span>
