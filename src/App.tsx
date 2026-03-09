@@ -30,6 +30,7 @@ const fadeLeft = {
 
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activePage, setActivePage] = useState<'home' | 'impressum' | 'datenschutz' | 'agb'>('home');
 
   return (
     <div className="min-h-screen bg-surface-50 font-sans selection:bg-primary-500 selection:text-white overflow-x-hidden">
@@ -38,7 +39,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <span className="flex items-center"><MapPin className="w-4 h-4 mr-2 text-accent-500" /> Von-Haniel-Straße 7, 85778 Haimhausen</span>
-            <span className="flex items-center"><Clock className="w-4 h-4 mr-2 text-accent-500" /> Mo-Fr: 08:00 - 17:00 Uhr</span>
+            <span className="flex items-center"><Clock className="w-4 h-4 mr-2 text-accent-500" /> Mo. - Do. von 8 - 16 Uhr und Freitags von 8-12 Uhr</span>
           </div>
           <div className="flex items-center space-x-6 font-medium">
             <a href="mailto:info@hausservice-maier.de" className="flex items-center hover:text-white transition-colors">
@@ -54,14 +55,14 @@ export default function App() {
       {/* Main Navigation */}
       <header className="bg-white sticky top-0 z-50 border-b border-surface-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end md:justify-between items-center h-20 md:h-24">
+          <div className="flex justify-end md:justify-between items-center h-24 md:h-28">
             {/* Logo - Hidden on mobile */}
             <div className="hidden md:flex flex-shrink-0 items-center">
-              <a href="#" className="flex items-center">
+              <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('home'); window.scrollTo(0,0); }} className="flex items-center">
                 <img 
                   src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260302_081216_d31ef968-c599-402c-bf77-c23a0b007f39.jpeg&w=1280&q=85" 
-                  alt="Hausservice Maier Logo" 
-                  className="h-16 w-auto object-contain mix-blend-multiply"
+                  alt="HausService Maier GmbH Logo" 
+                  className="h-20 md:h-24 w-auto object-contain mix-blend-multiply"
                   fetchPriority="high"
                   decoding="async"
                 />
@@ -70,10 +71,10 @@ export default function App() {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex space-x-8 items-center">
-              <a href="#leistungen" className="text-surface-800 hover:text-primary-600 font-medium transition-colors">Leistungen</a>
-              <a href="#vorteile" className="text-surface-800 hover:text-primary-600 font-medium transition-colors">Vorteile</a>
-              <a href="#faq" className="text-surface-800 hover:text-primary-600 font-medium transition-colors">FAQ</a>
-              <a href="#kontakt" className="bg-primary-900 hover:bg-primary-800 text-white px-6 py-2.5 rounded-lg font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center">
+              <a href="#leistungen" onClick={() => setActivePage('home')} className="text-surface-800 hover:text-primary-600 font-medium transition-colors">Leistungen</a>
+              <a href="#vorteile" onClick={() => setActivePage('home')} className="text-surface-800 hover:text-primary-600 font-medium transition-colors">Vorteile</a>
+              <a href="#faq" onClick={() => setActivePage('home')} className="text-surface-800 hover:text-primary-600 font-medium transition-colors">FAQ</a>
+              <a href="#kontakt" onClick={() => setActivePage('home')} className="bg-primary-900 hover:bg-primary-800 text-white px-6 py-2.5 rounded-lg font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center">
                 Angebot anfordern
               </a>
             </nav>
@@ -99,9 +100,9 @@ export default function App() {
             className="md:hidden bg-white border-t border-surface-200 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-1 shadow-lg">
-              <a href="#leistungen" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-surface-800 hover:bg-surface-50 rounded-md">Leistungen</a>
-              <a href="#vorteile" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-surface-800 hover:bg-surface-50 rounded-md">Vorteile</a>
-              <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-surface-800 hover:bg-surface-50 rounded-md">FAQ</a>
+              <a href="#leistungen" onClick={() => { setIsMobileMenuOpen(false); setActivePage('home'); }} className="block px-3 py-3 text-base font-medium text-surface-800 hover:bg-surface-50 rounded-md">Leistungen</a>
+              <a href="#vorteile" onClick={() => { setIsMobileMenuOpen(false); setActivePage('home'); }} className="block px-3 py-3 text-base font-medium text-surface-800 hover:bg-surface-50 rounded-md">Vorteile</a>
+              <a href="#faq" onClick={() => { setIsMobileMenuOpen(false); setActivePage('home'); }} className="block px-3 py-3 text-base font-medium text-surface-800 hover:bg-surface-50 rounded-md">FAQ</a>
               <a href="tel:+491754011720" className="mt-4 flex justify-center items-center w-full text-center bg-primary-900 text-white px-6 py-3 rounded-lg font-medium">
                 <Phone className="w-4 h-4 mr-2" />
                 Jetzt anrufen
@@ -111,12 +112,90 @@ export default function App() {
         )}
       </header>
 
+      {activePage === 'impressum' ? (
+        <main className="max-w-4xl mx-auto px-4 py-20">
+          <button onClick={() => { setActivePage('home'); window.scrollTo(0,0); }} className="mb-8 text-primary-600 font-bold flex items-center hover:underline">
+            &larr; Zurück zur Startseite
+          </button>
+          <h1 className="text-4xl font-display font-bold mb-8 text-surface-900">Impressum</h1>
+          <div className="prose prose-lg text-surface-700 max-w-none">
+            <p><strong>Angaben gemäß § 5 TMG</strong></p>
+            <p>
+              HausService Maier GmbH<br />
+              Von-Haniel-Str. 7<br />
+              85778 Haimhausen
+            </p>
+            <p>
+              <strong>Handelsregister:</strong> HRB 261650<br />
+              <strong>Registergericht:</strong> Amtsgericht München
+            </p>
+            <p>
+              <strong>Vertreten durch:</strong><br />
+              Stefan Maier, Thomas Maier
+            </p>
+            <p>
+              <strong>USt - IdNr.:</strong> DE338437249
+            </p>
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">Kontakt</h2>
+            <p>
+              <strong>E-Mail:</strong> info@hausservice-maier.de<br />
+              <strong>Stefan Maier:</strong> 0151 41432890<br />
+              <strong>Thomas Maier:</strong> 0175 4011720
+            </p>
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">Redaktionell Verantwortlicher:</h2>
+            <p>Stefan Maier, Thomas Maier</p>
+            
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">EU-Streitschlichtung</h2>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">https://ec.europa.eu/consumers/odr</a>.<br />Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+            
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">Verbraucherstreitbeilegung/Universalschlichtungsstelle</h2>
+            <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">Haftung für Inhalte</h2>
+            <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">Haftung für Links</h2>
+            <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">Urheberrecht</h2>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+          </div>
+        </main>
+      ) : activePage === 'datenschutz' ? (
+        <main className="max-w-4xl mx-auto px-4 py-20">
+          <button onClick={() => { setActivePage('home'); window.scrollTo(0,0); }} className="mb-8 text-primary-600 font-bold flex items-center hover:underline">
+            &larr; Zurück zur Startseite
+          </button>
+          <h1 className="text-4xl font-display font-bold mb-8 text-surface-900">Datenschutzerklärung</h1>
+          <div className="prose prose-lg text-surface-700 max-w-none">
+            <p>Hier folgt die Datenschutzerklärung der HausService Maier GmbH. (Bitte fügen Sie hier Ihren vollständigen Datenschutztext ein).</p>
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">1. Datenschutz auf einen Blick</h2>
+            <p>Allgemeine Hinweise: Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.</p>
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">2. Allgemeine Hinweise und Pflichtinformationen</h2>
+            <p>Datenschutz: Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+          </div>
+        </main>
+      ) : activePage === 'agb' ? (
+        <main className="max-w-4xl mx-auto px-4 py-20">
+          <button onClick={() => { setActivePage('home'); window.scrollTo(0,0); }} className="mb-8 text-primary-600 font-bold flex items-center hover:underline">
+            &larr; Zurück zur Startseite
+          </button>
+          <h1 className="text-4xl font-display font-bold mb-8 text-surface-900">Allgemeine Geschäftsbedingungen (AGB)</h1>
+          <div className="prose prose-lg text-surface-700 max-w-none">
+            <p>Hier folgen die Allgemeinen Geschäftsbedingungen der HausService Maier GmbH. (Bitte fügen Sie hier Ihren vollständigen AGB-Text ein).</p>
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">1. Geltungsbereich</h2>
+            <p>Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge, Lieferungen und sonstigen Leistungen der HausService Maier GmbH.</p>
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-surface-900">2. Vertragsschluss</h2>
+            <p>Unsere Angebote sind freibleibend und unverbindlich. Ein Vertrag kommt erst durch unsere schriftliche Auftragsbestätigung zustande.</p>
+          </div>
+        </main>
+      ) : (
       <main>
         {/* Hero Section */}
         <section className="relative bg-primary-950 text-white overflow-hidden">
           {/* Background Pattern/Image Overlay with slow scale animation */}
           <motion.div 
-            className="absolute inset-0 opacity-40 will-change-transform"
+            className="absolute inset-0 opacity-60 will-change-transform"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -128,7 +207,7 @@ export default function App() {
               fetchPriority="high"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-950/90 to-primary-900/70 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-950/70 to-primary-900/40 mix-blend-multiply"></div>
           </motion.div>
 
           {/* Adjusted padding: pt-10 pb-20 for mobile to remove empty space, lg:py-32 for desktop */}
@@ -149,7 +228,7 @@ export default function App() {
                 </motion.h1>
                 
                 <motion.p variants={fadeUp} className="text-lg sm:text-xl md:text-2xl text-primary-100 mb-8 md:mb-10 text-balance max-w-2xl leading-relaxed">
-                  Professionelle Objektbetreuung, Gartenpflege und Reinigung. Wir entlasten Eigentümer und Hausverwaltungen – zuverlässig, kompetent und regional.
+                  HausService Maier GmbH bietet seit 1994 erstklassiges Facility Management. Professionelle Objektbetreuung, Grünanlagenpflege und Reinigung. Wir entlasten Eigentümer und Hausverwaltungen – zuverlässig, kompetent und regional.
                 </motion.p>
                 
                 <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
@@ -245,7 +324,7 @@ export default function App() {
                   <div className="w-full h-48 mb-6 rounded-xl overflow-hidden">
                     <img src="https://s1.directupload.eu/images/260306/7yeu2rgl.jpg" alt="Winterdienstfahrzeug" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                  <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Garten- & Winterdienst</h4>
+                  <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Grünanlagen- & Winterdienst</h4>
                   <p className="text-surface-600 mb-6 leading-relaxed">Gepflegte Außenanlagen im Sommer und garantierte Sicherheit bei Schnee und Eis im Winter.</p>
                   <ul className="space-y-2 text-surface-600 font-medium">
                     <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-accent-500 mr-2 shrink-0" /> Rasenschnitt & Heckenpflege</li>
@@ -285,9 +364,14 @@ export default function App() {
                 </motion.div>
 
                 <motion.div variants={fadeRight}>
-                  <a href="https://www.provenexpert.com/hausservice-maier-gmbh" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl transition-colors border border-white/20">
+                  <a href="https://www.provenexpert.com/hausservice-maier-gmbh" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl transition-colors border border-white/20">
                     <span className="font-bold">Bewerten Sie uns auf</span>
-                    <img src="https://www.provenexpert.com/images/pe-logo-white.svg" alt="ProvenExpert" className="h-5" />
+                    <div className="flex items-center gap-1.5">
+                      <svg className="w-5 h-5 text-[#00C853]" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                      <span className="font-bold text-white tracking-tight text-lg">Proven<span className="font-normal">Expert</span></span>
+                    </div>
                   </a>
                 </motion.div>
               </motion.div>
@@ -306,7 +390,7 @@ export default function App() {
                     transition={{ duration: 1.5, ease: "easeOut" }}
                     viewport={{ once: true }}
                     src="https://s1.directupload.eu/images/260306/uw3zz38x.jpg" 
-                    alt="Die Geschäftsführer von Hausservice Maier" 
+                    alt="Die Geschäftsführer von HausService Maier GmbH" 
                     className="w-full h-full object-cover will-change-transform"
                     loading="lazy"
                     decoding="async"
@@ -454,6 +538,7 @@ export default function App() {
           </div>
         </section>
       </main>
+      )}
 
       {/* Footer */}
       <footer className="bg-[#050505] text-white pt-20 pb-8 border-t border-surface-800 relative overflow-hidden">
@@ -475,10 +560,10 @@ export default function App() {
             <div>
               <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">Navigation</h4>
               <ul className="space-y-4 text-sm font-medium text-white/90">
-                <li><a href="#leistungen" className="hover:text-white transition-colors">Leistungen</a></li>
-                <li><a href="#vorteile" className="hover:text-white transition-colors">Vorteile</a></li>
-                <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
-                <li><a href="#kontakt" className="hover:text-white transition-colors">Kontakt</a></li>
+                <li><a href="#leistungen" onClick={() => { setActivePage('home'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Leistungen</a></li>
+                <li><a href="#vorteile" onClick={() => { setActivePage('home'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Vorteile</a></li>
+                <li><a href="#faq" onClick={() => { setActivePage('home'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">FAQ</a></li>
+                <li><a href="#kontakt" onClick={() => { setActivePage('home'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Kontakt</a></li>
               </ul>
             </div>
 
@@ -494,11 +579,11 @@ export default function App() {
 
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-medium text-white/80">
             <div className="flex flex-wrap justify-center gap-6">
-              <a href="#" className="hover:text-white transition-colors">Impressum</a>
-              <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
-              <a href="#" className="hover:text-white transition-colors">AGB</a>
+              <button onClick={() => { setActivePage('impressum'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Impressum</button>
+              <button onClick={() => { setActivePage('datenschutz'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Datenschutz</button>
+              <button onClick={() => { setActivePage('agb'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">AGB</button>
             </div>
-            <p>&copy; {new Date().getFullYear()} Hausservice Maier.</p>
+            <p>&copy; {new Date().getFullYear()} HausService Maier GmbH.</p>
           </div>
         </div>
         
