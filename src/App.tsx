@@ -55,14 +55,14 @@ export default function App() {
       {/* Main Navigation */}
       <header className="bg-white sticky top-0 z-50 border-b border-surface-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end md:justify-between items-center h-24 md:h-28">
-            {/* Logo - Hidden on mobile */}
-            <div className="hidden md:flex flex-shrink-0 items-center">
+          <div className="flex justify-between items-center h-24 md:h-28">
+            {/* Logo */}
+            <div className="flex flex-shrink-0 items-center">
               <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('home'); window.scrollTo(0,0); }} className="flex items-center">
                 <img 
                   src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260302_081216_d31ef968-c599-402c-bf77-c23a0b007f39.jpeg&w=1280&q=85" 
                   alt="HausService Maier GmbH Logo" 
-                  className="h-20 md:h-24 w-auto object-contain mix-blend-multiply"
+                  className="h-16 sm:h-20 md:h-24 w-auto object-contain mix-blend-multiply"
                   fetchPriority="high"
                   decoding="async"
                 />
