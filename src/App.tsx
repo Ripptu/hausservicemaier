@@ -610,6 +610,9 @@ export default function App() {
               <button onClick={() => { setActivePage('datenschutz'); window.scrollTo(0,0); }} className="hover:text-white transition-colors">Datenschutz</button>
             </div>
             <p>&copy; {new Date().getFullYear()} HausService Maier GmbH.</p>
+            <div className="text-white/60">
+              Designed by <a href="http://vamela.info" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent-400 transition-colors font-bold">VAMELA</a>
+            </div>
           </div>
         </div>
         
