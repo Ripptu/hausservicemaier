@@ -64,6 +64,7 @@ export default function App() {
                   alt="HausService Maier GmbH Logo" 
                   className="h-16 sm:h-20 md:h-24 w-auto object-contain mix-blend-multiply"
                   fetchPriority="high"
+                  loading="eager"
                   decoding="async"
                 />
               </a>
@@ -232,6 +233,7 @@ export default function App() {
               alt="Moderne Gewerbeimmobilie" 
               className="w-full h-full object-cover"
               fetchPriority="high"
+              loading="eager"
               decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/30"></div>
@@ -315,7 +317,7 @@ export default function App() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
                 <div className="relative z-10">
                   <div className="w-full h-48 mb-6 rounded-xl overflow-hidden">
-                    <img src="https://s1.directupload.eu/images/260306/fr7vru3s.jpg" alt="Mitarbeiter vor Maschinenanlage" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src="https://s1.directupload.eu/images/260306/fr7vru3s.jpg" alt="Mitarbeiter vor Maschinenanlage" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                   </div>
                   <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Hausmeisterservice</h4>
                   <p className="text-surface-600 mb-6 leading-relaxed">Technische Betreuung, Instandhaltung und regelmäßige Kontrollgänge für einen reibungslosen Betrieb Ihrer Immobilie.</p>
@@ -332,7 +334,7 @@ export default function App() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
                 <div className="relative z-10">
                   <div className="w-full h-48 mb-6 rounded-xl overflow-hidden">
-                    <img src="https://s1.directupload.eu/images/260306/3u4a6wd3.jpg" alt="Treppenhausreinigung" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src="https://s1.directupload.eu/images/260306/3u4a6wd3.jpg" alt="Treppenhausreinigung" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                   </div>
                   <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Gebäudereinigung</h4>
                   <p className="text-surface-600 mb-6 leading-relaxed">Strahlende Sauberkeit für Treppenhäuser, Büros und Tiefgaragen. Repräsentativ und hygienisch einwandfrei.</p>
@@ -349,7 +351,7 @@ export default function App() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
                 <div className="relative z-10">
                   <div className="w-full h-48 mb-6 rounded-xl overflow-hidden">
-                    <img src="https://s1.directupload.eu/images/260306/7yeu2rgl.jpg" alt="Winterdienstfahrzeug" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src="https://s1.directupload.eu/images/260306/7yeu2rgl.jpg" alt="Winterdienstfahrzeug" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                   </div>
                   <h4 className="text-xl font-display font-bold text-surface-900 mb-3">Grünanlagen- & Winterdienst</h4>
                   <p className="text-surface-600 mb-6 leading-relaxed">Gepflegte Außenanlagen im Sommer und garantierte Sicherheit bei Schnee und Eis im Winter.</p>
