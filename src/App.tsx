@@ -1,7 +1,6 @@
 import { Phone, Mail, MapPin, Clock, ShieldCheck, ChevronRight, CheckCircle2, Menu, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import CookieConsent from './components/CookieConsent';
 
 // Animation Variants
 const staggerContainer = {
@@ -626,8 +625,6 @@ export default function App() {
           </span>
         </div>
       </footer>
-      
-      <CookieConsent />
     </div>
   );
 }
